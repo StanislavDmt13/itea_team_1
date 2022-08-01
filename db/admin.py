@@ -12,4 +12,5 @@ class ArticlesAdmin(admin.ModelAdmin):
     list_display = ['title', 'time_create', 'author']
 
 
-admin.site.register(Exercise, ExerciseAdmin, Articles, ArticlesAdmin)
+admin.site.register(Exercise, ExerciseAdmin)
+admin.site.register(Articles, ArticlesAdmin)
