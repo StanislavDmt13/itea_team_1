@@ -1,5 +1,5 @@
 from django.contrib import admin
-from db.models import Exercise
+from db.models import Exercise, Articles
 
 
 class ExerciseAdmin(admin.ModelAdmin):
@@ -7,4 +7,9 @@ class ExerciseAdmin(admin.ModelAdmin):
     list_display = ['title', 'time_create', 'author']
 
 
-admin.site.register(Exercise, ExerciseAdmin)
+class ArticlesAdmin(admin.ModelAdmin):
+
+    list_display = ['title', 'time_create', 'author']
+
+
+admin.site.register(Exercise, ExerciseAdmin, Articles, ArticlesAdmin)
