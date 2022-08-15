@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'prosport.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.getenv('DB_NAME'),
         'PORT': os.getenv('DB_PORT'),
         'USER': os.getenv('DB_USER'),
