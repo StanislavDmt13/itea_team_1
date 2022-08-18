@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Athlete {{ user.username }}
+{% endblock %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href={% static 'css/cabinet.css' %}>
+
+{% endblock %}
+
+{% block content %}
+    <h1>Page user: {{user}}</h1>
+        {% if user.descriptions %}
+            <p>Description: {{ user.descriptions }}</p>
+        {% else %}
+            <p>Description: no data</p>
+        {% endif %}
+{% endblock %}
