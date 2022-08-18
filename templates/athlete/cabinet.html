@@ -11,5 +11,10 @@
 {% endblock %}
 
 {% block content %}
-    <h1>ProSport content</h1>
+    <h1>Page user: {{user}}</h1>
+        {% if user.descriptions %}
+            <p>Description: {{ user.descriptions }}</p>
+        {% else %}
+            <p>Description: no data</p>
+        {% endif %}
 {% endblock %}

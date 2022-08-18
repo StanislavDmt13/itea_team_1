@@ -39,7 +39,7 @@ class UserAdmin(BaseUserAdmin):
         (_("Important dates"), {"fields": ("last_login", "created_at")}),
     )
     add_fieldsets = (
-        (None, {"classes": ("wide",), "fields": ("email", "password1", "password2")}),
+        (None, {"classes": ("wide",), "fields": ("email", "username", "password1", "password2")}),
     )
 
     readonly_fields = ("created_at",)

@@ -14,14 +14,18 @@
     <section>
         <header>
             <h1>ProSport</h1>
+            <h3>User: {{ user }}</h3>
             <ul class="top-menu">
                 <li><a href="{% url 'index' %}">Home</a></li>
                 <li><a href="#">Train</a></li>
                 <li><a href="#">Train program</a></li>
                 <li><a href="#">Articles</a></li>
-                <li><a href="#">About</a></li>
                 <li><a href="{% url 'registration' %}">Register</a></li>
-                <li><a href="#">Login</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
             </ul>
         </header>
         <div class="container">
