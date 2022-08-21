@@ -71,12 +71,17 @@ class Articles(models.Model):
     time_update = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.title
+
 
 class TrainProgram(models.Model):
     name = models.CharField(max_length=200)
     author = models.ForeignKey(User, related_name='programs', on_delete=models.CASCADE)
     # add field
 
+    def __str__(self):
+        return self.name
 
 class Train(models.Model):
     title = models.CharField(max_length=200)
@@ -86,3 +91,6 @@ class Train(models.Model):
     image = models.ImageField(upload_to="users", null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     train_program = models.ForeignKey(TrainProgram, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
