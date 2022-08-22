@@ -11,10 +11,20 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Page user: {{user}}</h1>
-        {% if user.descriptions %}
-            <p>Description: {{ user.descriptions }}</p>
+    <h1>Page user: {{ user }}</h1>
+
+        {% if user.avatar %}
+    <img src="{{ MEDIA_URL }}{{ user.avatar }}" alt="Avatar" width="150">
         {% else %}
-            <p>Description: no data</p>
+    <h2>No avatar</h2>
         {% endif %}
+    <p>User name: {{ user.username }}</p>
+    <p>Name: {{ user.first_name}} {{ user.last_name }}</p>
+    <p>Birthday: {{ user.birthday }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Phone: {{ user.phone }}</p>
+    <a href="{% url 'athlete-edit' %}">Edit</a></li>
+    <br>
+
+
 {% endblock %}

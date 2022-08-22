@@ -9,7 +9,7 @@ from db.models import User
 class AthleteEditForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'phone']
+        fields = ['first_name', 'last_name', 'birthday', 'phone', 'email']
 
 
 class AthleteEditAvatar(forms.ModelForm):
@@ -18,7 +18,7 @@ class AthleteEditAvatar(forms.ModelForm):
         fields = ['avatar']
 
 
-class TestForm(forms.Form):
+class CreateTrain(forms.Form):
 
     name = forms.CharField(
         required=True,
