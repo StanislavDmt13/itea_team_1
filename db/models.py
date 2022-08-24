@@ -78,7 +78,10 @@ class Articles(models.Model):
 class TrainProgram(models.Model):
     name = models.CharField(max_length=200)
     author = models.ForeignKey(User, related_name='programs', on_delete=models.CASCADE)
-    # add field
+    time_create = models.DateTimeField(auto_now_add=True)
+    time_update = models.DateTimeField(auto_now=True)
+    type = models.CharField(max_length=200)
+    descriptions = models.TextField(blank=True)
 
     def __str__(self):
         return self.name

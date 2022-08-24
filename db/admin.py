@@ -57,7 +57,7 @@ class ArticlesAdmin(admin.ModelAdmin):
 
 class TrainProgramAdmin(admin.ModelAdmin):
 
-    list_display = ['name', 'author']
+    list_display = ['name', 'time_create', 'author']
 
 
 admin.site.register(models.Train, TrainAdmin)
