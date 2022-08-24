@@ -1,0 +1,45 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Athlete, {{ user.username }}
+{% endblock %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href={% static 'css/cabinet.css' %}>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <form method="post" action="avatar/" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ avatar_form.avatar }}
+            <button class="btn btn-primary" type="submit">Upload Avatar</button>
+        </form>
+        <form method="post">
+                  {% csrf_token %}
+
+                    {% for field in form.visible_fields %}
+                        <div>
+                            <div>
+                              <h6>{{ field.label_tag|title }}</h6>
+                            </div>
+                            <div>
+                                {{ field }}
+                            </div>
+                        </div>
+                          <hr>
+                    {% endfor %}
+
+                  <div>
+                    <div>
+                        <button type="submit">Save</button>
+                    </div>
+            </form>
+
+    </div>
+
+{% endblock %}
