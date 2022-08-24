@@ -16,7 +16,7 @@
         {% for train in trains_list %}
         <hr>
         <h4>Train: {{ train }}</h4>
-        <h5>Author: {{ train.author.name }} | Train program: {{ train.train_program }}  |  Date: {{ train.time_create }}</h5>
+        <h5>Author: {{ train.author.username }} | Train program: {{ train.train_program }}  |  Date: {{ train.time_create }}</h5>
         <p>{{ train.description }}</p>
         <hr>
         {% endfor %}
