@@ -1,13 +1,10 @@
+from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager,
+                                        PermissionsMixin)
 from django.db import models
-from django.contrib.auth.models import (
-    AbstractBaseUser,
-    BaseUserManager,
-    PermissionsMixin,
-)
 
-'''
+"""
 documentation fields: https://docs.djangoproject.com/en/4.0/ref/models/fields/
-'''
+"""
 
 
 class UserManager(BaseUserManager):
@@ -77,7 +74,7 @@ class Articles(models.Model):
 
 class TrainProgram(models.Model):
     name = models.CharField(max_length=200)
-    author = models.ForeignKey(User, related_name='programs', on_delete=models.CASCADE)
+    author = models.ForeignKey(User, related_name="programs", on_delete=models.CASCADE)
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
     type = models.CharField(max_length=200)
@@ -93,8 +90,8 @@ class Train(models.Model):
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
     image = models.ImageField(upload_to="users", null=True, blank=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    train_program = models.ForeignKey(TrainProgram, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, related_name='trains', on_delete=models.CASCADE)
+    train_program = models.ForeignKey(TrainProgram, related_name='trains', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

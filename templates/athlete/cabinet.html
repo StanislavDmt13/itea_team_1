@@ -12,7 +12,6 @@
 
 {% block content %}
     <h1>Page user: {{ user }}</h1>
-
         {% if user.avatar %}
     <img src="{{ MEDIA_URL }}{{ user.avatar }}" alt="Avatar" width="150">
         {% else %}
@@ -23,6 +22,7 @@
     <p>Birthday: {{ user.birthday }}</p>
     <p>Email: {{ user.email }}</p>
     <p>Phone: {{ user.phone }}</p>
+    <p>Trains Amount: {{ user.count }}</p>
     <a href="{% url 'athlete-edit' %}">Edit</a></li>
     <br>
 

@@ -6,58 +6,64 @@ from . import models
 
 
 class UserAdmin(BaseUserAdmin):
-    ordering = ['id']
-    list_display = ['email', 'username']
+    ordering = ["id"]
+    list_display = ["email", "username"]
 
     fieldsets = (
-        (None, {'fields': ('email', 'password')}),
+        (None, {"fields": ("email", "password")}),
         (
-            _('Personal Info'),
+            _("Personal Info"),
             {
-                'fields': (
-                    'avatar',
-                    'username',
-                    'first_name',
-                    'last_name',
-                    'birthday',
-                    'phone',
+                "fields": (
+                    "avatar",
+                    "username",
+                    "first_name",
+                    "last_name",
+                    "birthday",
+                    "phone",
                 )
             },
         ),
         (
-            _('Permissions'),
+            _("Permissions"),
             {
-                'fields': (
-                    'is_active',
-                    'is_staff',
-                    'is_superuser',
-                    'groups',
-                    'user_permissions',
+                "fields": (
+                    "is_active",
+                    "is_staff",
+                    "is_superuser",
+                    "groups",
+                    "user_permissions",
                 )
             },
         ),
-        (_('Important dates'), {'fields': ('last_login', 'created_at')}),
+        (_("Important dates"), {"fields": ("last_login", "created_at")}),
     )
     add_fieldsets = (
-        (None, {'classes': ('wide',), 'fields': ('email', 'username', 'password1', 'password2')}),
+        (
+            None,
+            {
+                "classes": ("wide",),
+                "fields": ("email", "username", "password1", "password2"),
+            },
+        ),
     )
 
-    readonly_fields = ('created_at',)
+    readonly_fields = ("created_at",)
 
 
 class TrainAdmin(admin.ModelAdmin):
 
-    list_display = ['title', 'time_create', 'author']
+    list_display = ["title", "time_create", "author"]
 
 
 class ArticlesAdmin(admin.ModelAdmin):
 
-    list_display = ['title', 'time_create', 'author']
+    list_display = ["title", "time_create", "author"]
 
 
 class TrainProgramAdmin(admin.ModelAdmin):
 
-    list_display = ['name', 'time_create', 'author']
+    list_display = ["name", "time_create", "author"]
 
 
 admin.site.register(models.Train, TrainAdmin)
