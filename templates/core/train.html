@@ -17,7 +17,9 @@
         <hr>
         <h4>Train: {{ train }}</h4>
         <h5>Author: {{ train.author.username }} | Train program: {{ train.train_program }}  |  Date: {{ train.time_create }}</h5>
-        <p>{{ train.description }}</p>
+        <p>{{ train.description | truncatewords:20 }}
+            <button><a href="{% url 'train-page' train.pk %}">More...</a></button>
+        </p>
         <hr>
         {% endfor %}
     </div>

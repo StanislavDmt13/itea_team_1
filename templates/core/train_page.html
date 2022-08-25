@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+   Тренування - {{title}}
+{% endblock %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href={% static 'css/train.css' %}>
+
+{% endblock %}
+
+{% block content %}
+    <div>
+        <hr>
+        <h2>Train: {{ train_data.title }}</h2>
+            {% if train_data.image %}
+                <img src="{{ MEDIA_URL }}{{ train_data.image }}" alt="Train" width="150">
+            {% else %}
+                <h2>No image train</h2>
+            {% endif %}
+        <h5>Author: {{ train_data.author.username }} | Train program: {{ train_data.train_program }}  |  Date: {{ train_data.time_create }}</h5>
+        <p>{{ train_data.description | linebreaks }}
+        </p>
+        <hr>
+    </div>
+{% endblock %}
