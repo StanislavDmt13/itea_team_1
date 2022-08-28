@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Add train
+{% endblock %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href={% static 'css/cabinet.css' %}>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<h1>Add train</h1>
+	<form method="POST" actions="train" enctype="multipart/form-data">
+		{% csrf_token %}
+			{% for field in form %}
+				<div>
+					<h6>{{ field.label_tag}}</h6>
+					<h6>{{ field }}</h6>
+				</div>
+			{% endfor %}
+		<button type="submit">Add</button>
+	</form>
+</div>
+
+{% endblock %}

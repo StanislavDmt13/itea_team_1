@@ -92,7 +92,7 @@ class Train(models.Model):
     description = models.TextField(blank=False)
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to="users", null=True, blank=True)
+    image = models.ImageField(upload_to="train", null=True, blank=True)
     author = models.ForeignKey(User, related_name='trains', on_delete=models.CASCADE)
     train_program = models.ForeignKey(TrainProgram, related_name='trains', on_delete=models.CASCADE)
 
