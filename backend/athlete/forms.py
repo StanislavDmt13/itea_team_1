@@ -1,9 +1,7 @@
 
-import datetime
-
 from django import forms
 
-from db.models import User
+from db.models import User, Train
 
 
 class AthleteEditForm(forms.ModelForm):
@@ -12,22 +10,20 @@ class AthleteEditForm(forms.ModelForm):
         fields = ['first_name', 'last_name', 'birthday', 'phone', 'email']
 
 
+class TrainEditForm(forms.ModelForm):
+    class Meta:
+        model = Train
+        fields = ['title', 'description', 'image', 'author', 'train_program']
+
+
 class AthleteEditAvatar(forms.ModelForm):
     class Meta:
         model = User
         fields = ['avatar']
 
 
-class CreateTrain(forms.Form):
+class NewTrainForm(forms.ModelForm):
 
-    name = forms.CharField(
-        required=True,
-        max_length=120,
-        help_text='''
-        Only characters
-        ''',
-    )
-
-    phone = forms.CharField(required=False, max_length=14)
-
-    created_at = forms.DateTimeField(required=False, initial=datetime.datetime.now())
+    class Meta:
+        model = Train
+        fields = ['title', 'description', 'image', 'author', 'train_program']

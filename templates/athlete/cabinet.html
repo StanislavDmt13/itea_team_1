@@ -23,7 +23,7 @@
     <p>Birthday: {{ user.birthday }}</p>
     <p>Email: {{ user.email }}</p>
     <p>Phone: {{ user.phone }}</p>
-    <p>Train count:  <button><a href="#">More...</a></button> <button><a href="#">Create</a></button></p>
+    <p>Train count:{{ user.count }} <button><a href="{% url 'trains-user' %}">More...</a> </button> <button><a href="{% url 'add-train' %}">Create</a></button></p>
     <a href="{% url 'athlete-edit' %}">Edit</a></li>
     <br>
 

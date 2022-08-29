@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Trainslist
+{% endblock %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href={% static 'css/cabinet.css' %}>
+{% endblock %}
+
+{% block content %}
+    {% for train in trains_user_list %}
+        <hr>
+        <h4>Train: {{ train }}</h4>
+        <h5>Author: {{ train.author.username }} | Train program: {{ train.train_program }}  |  Date: {{ train.time_create }}</h5>
+        <p>{{ train.description | truncatewords:50 }} <button><a href="{% url 'train-page' train.pk %}">More...</a></button></p>
+        <button><a href="{% url 'edit-train' train.pk %}">Edit</a></button> <button><a href="{% url 'delete-train' train.pk %}">Delete</a></button>
+        <hr>
+    {% endfor %}
+{% endblock %}
