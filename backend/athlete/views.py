@@ -44,13 +44,13 @@ class AthleteEditView(LoginRequiredMixin, UpdateView):
 class TrainEditView(UpdateView):
     model = Train
     form_class = TrainEditForm
-    success_url = '/trains-user/'
+    success_url = '/athlete/trains-user/'
     template_name = 'athlete/edit_train.html'
 
 
 class TrainDeleteView(DeleteView):
     model = Train
-    success_url = '/trains-user/'
+    success_url = '/athlete/trains-user/'
     template_name = 'athlete/delete_train.html'
 
 
