@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'backend',
     'db',
     'crispy_forms',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -61,7 +62,7 @@ ROOT_URLCONF = 'prosport.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates"],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -116,8 +117,15 @@ LOGIN_REDIRECT_URL = '/athlete'
 LOGIN_URL = '/auth/login'
 LOGOUT_REDIRECT_URL = '/auth/login'
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.0/topics/i18n/
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
 
 LANGUAGE_CODE = 'en-us'
 
