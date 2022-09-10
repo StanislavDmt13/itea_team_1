@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Train
+{% endblock %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href={% static 'css/base.css' %}>
+
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>Train Program</h1>
+        {% for train_program in train_program_list %}
+        <hr>
+        <h4>Train Program: {{ train_program }}</h4>
+        <h5>Author: {{ train_program.author.username }} | Train type: {{ train_program.type }}  |  Date: {{ train_program.time_create }}</h5>
+        <p>{{ train_program.descriptions }}</p>
+        <hr>
+        {% endfor %}
+    </div>
+{% endblock %}

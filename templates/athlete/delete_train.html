@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Delete train
+{% endblock %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href={% static 'css/cabinet.css' %}>
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1>Delete {{ form }}</h1>
+                <div>
+                    <button type="submit">Delete</button>
+                </div>
+        </form>
+
+{% endblock %}
